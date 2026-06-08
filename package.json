@@ -1,6 +1,6 @@
 {
-  "name": "jay-wix-studio-store",
-  "version": "0.18.0",
+  "name": "jay-studio-store",
+  "version": "0.0.1",
   "type": "module",
   "private": true,
   "scripts": {
