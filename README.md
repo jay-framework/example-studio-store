@@ -2,6 +2,14 @@
 
 A bold, brutalist e-commerce storefront built with [Jay Framework](https://github.com/nicenemo/jay) and Wix Stores. Features an asymmetric product grid, product detail pages with variants, and a shopping cart — all in a high-contrast black/white/cyan design.
 
+**Live demo:** [https://jay-studio-9b80199d-yoav68.wix-site-host.com](https://jay-studio-9b80199d-yoav68.wix-site-host.com)
+
+<p>
+  <img src="docs/screenshot-products.png" alt="Product listing page" width="400">
+  <img src="docs/screenshot-product-detail.png" alt="Product detail page" width="400">
+  <img src="docs/screenshot-cart.png" alt="Shopping cart" width="400">
+</p>
+
 ## Prerequisites
 
 - Node.js >= 20
@@ -116,7 +124,6 @@ Then open `http://localhost:3000/aiditor` in your browser.
 This project includes the `wix-deploy` package for deploying to Wix BaaS. If you don't need Wix deployment, remove `wix-deploy` from your dependencies.
 
 ```bash
-wix login
 npm run build:production
 npm run deploy
 ```
