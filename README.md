@@ -4,11 +4,18 @@ A bold, brutalist e-commerce storefront built with [Jay Framework](https://githu
 
 **Live demo:** [https://jay-studio-9b80199d-yoav68.wix-site-host.com](https://jay-studio-9b80199d-yoav68.wix-site-host.com)
 
-<p>
-  <img src="docs/screenshot-products.png" alt="Product listing page" width="400">
-  <img src="docs/screenshot-product-detail.png" alt="Product detail page" width="400">
-  <img src="docs/screenshot-cart.png" alt="Shopping cart" width="400">
-</p>
+<table>
+  <tr>
+    <td>
+      <img src="docs/screenshot-homepage.png" alt="Homepage" width="400"><br>
+      <img src="docs/screenshot-product-detail.png" alt="Product detail page" width="400"><br>
+      <img src="docs/screenshot-cart.png" alt="Shopping cart" width="400">
+    </td>
+    <td valign="top">
+      <img src="docs/screenshot-products.png" alt="Product listing page" width="400">
+    </td>
+  </tr>
+</table>
 
 ## Prerequisites
 
