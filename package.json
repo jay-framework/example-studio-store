@@ -19,16 +19,16 @@
     "test": ":"
   },
   "dependencies": {
-    "@jay-framework/fullstack-component": "^0.18.0",
-    "@jay-framework/jay-stack-cli": "^0.18.0",
-    "@jay-framework/wix-cart": "^0.18.0",
-    "@jay-framework/wix-deploy": "^0.18.0",
-    "@jay-framework/wix-server-client": "^0.18.0",
-    "@jay-framework/wix-stores": "^0.18.0"
+    "@jay-framework/fullstack-component": "^0.18.4",
+    "@jay-framework/jay-stack-cli": "^0.18.4",
+    "@jay-framework/wix-cart": "^0.18.4",
+    "@jay-framework/wix-deploy": "^0.18.4",
+    "@jay-framework/wix-server-client": "^0.18.4",
+    "@jay-framework/wix-stores": "^0.18.4"
   },
   "devDependencies": {
-    "@jay-framework/aiditor": "^0.18.0",
-    "@jay-framework/jay-cli": "^0.18.0",
+    "@jay-framework/aiditor": "^0.18.4",
+    "@jay-framework/jay-cli": "^0.18.4",
     "@types/node": "^22.10.0",
     "rimraf": "^6.0.0",
     "typescript": "~5.7.2",
