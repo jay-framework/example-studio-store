@@ -508,16 +508,17 @@ textarea {
 
 .ribbon {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 8px;
+  left: 8px;
   z-index: 2;
 }
 
 .stock-badge {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 8px;
+  right: 8px;
   z-index: 2;
+  background: var(--bg-primary);
 }
 
 /* ============================================================================
@@ -840,6 +841,17 @@ textarea {
 .filters-header .section-title {
   color: inherit;
   font-size: 14px;
+}
+
+.filters-header .btn-ghost {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--text-inverse);
+}
+
+.filters-header .btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--text-inverse);
+  color: var(--text-inverse);
 }
 
 .filter-group {
