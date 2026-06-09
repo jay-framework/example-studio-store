@@ -63,6 +63,68 @@
         background: var(--accent);
         color: var(--bg-inverse);
       }
+
+      /* Featured Products Section */
+      .featured-products {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 var(--page-padding) 120px;
+      }
+
+      .featured-products-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: var(--border-width) solid var(--border);
+      }
+
+      .featured-products-title {
+        font-family: var(--font-primary);
+        font-size: 28px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+      }
+
+      .featured-products-link {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        border-bottom: 2px solid transparent;
+        padding-bottom: 2px;
+      }
+
+      .featured-products-link:hover {
+        color: var(--accent-dark);
+        border-bottom-color: var(--accent);
+      }
+
+      .featured-products .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .featured-products .product-card .product-card-image {
+        aspect-ratio: 3/4;
+      }
+
+      @media (max-width: 1024px) {
+        .featured-products .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .featured-products .products-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -86,6 +148,64 @@
           Curated products for those who appreciate bold design and uncompromising quality.
         </p>
         <a href="/products" class="hero-cta">Browse Collection</a>
+      </section>
+
+      <section class="featured-products">
+        <div class="featured-products-header">
+          <h2 class="featured-products-title">Featured Products</h2>
+          <a href="/products" class="featured-products-link">View All</a>
+        </div>
+
+        <div class="products-grid">
+          <!-- Ceramic Flower Vase -->
+          <a href="/products/ceramic-flower-vase" class="product-card">
+            <div class="product-card-image">
+              <span class="ribbon"><span class="badge badge-accent">Best Seller</span></span>
+              <img src="https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+                   alt="Ceramic Flower Vase" />
+              <div class="product-image-overlay">
+                <div class="overlay-name">Ceramic Flower Vase</div>
+                <div class="overlay-price">$270.00</div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Minimalist Tote Bag -->
+          <a href="/products/minimalist-tote-bag" class="product-card">
+            <div class="product-card-image">
+              <img src="https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+                   alt="Minimalist Tote Bag" />
+              <div class="product-image-overlay">
+                <div class="overlay-name">Minimalist Tote Bag</div>
+                <div class="overlay-price">$20.00</div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Hydrating Eye Serum -->
+          <a href="/products/hydrating-eye-serum" class="product-card">
+            <div class="product-card-image">
+              <img src="https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+                   alt="Hydrating Eye Serum" />
+              <div class="product-image-overlay">
+                <div class="overlay-name">Hydrating Eye Serum</div>
+                <div class="overlay-price">$56.00</div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Knitted Golf Sweater -->
+          <a href="/products/knitted-golf-sweater" class="product-card">
+            <div class="product-card-image">
+              <img src="https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+                   alt="Knitted Golf Sweater" />
+              <div class="product-image-overlay">
+                <div class="overlay-name">Knitted Golf Sweater</div>
+                <div class="overlay-price">$275.00</div>
+              </div>
+            </div>
+          </a>
+        </div>
       </section>
     </div>
   </body>
