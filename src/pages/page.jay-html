@@ -162,7 +162,7 @@
             <div class="product-card-image">
               <span class="ribbon"><span class="badge badge-accent">Best Seller</span></span>
               <img src="https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   alt="Ceramic Flower Vase" />
+                   alt="Ceramic Flower Vase" loading="lazy" width="600" height="600" />
               <div class="product-image-overlay">
                 <div class="overlay-name">Ceramic Flower Vase</div>
                 <div class="overlay-price">$270.00</div>
@@ -174,7 +174,7 @@
           <a href="/products/minimalist-tote-bag" class="product-card">
             <div class="product-card-image">
               <img src="https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   alt="Minimalist Tote Bag" />
+                   alt="Minimalist Tote Bag" loading="lazy" width="600" height="600" />
               <div class="product-image-overlay">
                 <div class="overlay-name">Minimalist Tote Bag</div>
                 <div class="overlay-price">$20.00</div>
@@ -186,7 +186,7 @@
           <a href="/products/hydrating-eye-serum" class="product-card">
             <div class="product-card-image">
               <img src="https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   alt="Hydrating Eye Serum" />
+                   alt="Hydrating Eye Serum" loading="lazy" width="600" height="600" />
               <div class="product-image-overlay">
                 <div class="overlay-name">Hydrating Eye Serum</div>
                 <div class="overlay-price">$56.00</div>
@@ -198,7 +198,7 @@
           <a href="/products/knitted-golf-sweater" class="product-card">
             <div class="product-card-image">
               <img src="https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   alt="Knitted Golf Sweater" />
+                   alt="Knitted Golf Sweater" loading="lazy" width="600" height="600" />
               <div class="product-image-overlay">
                 <div class="overlay-name">Knitted Golf Sweater</div>
                 <div class="overlay-price">$275.00</div>

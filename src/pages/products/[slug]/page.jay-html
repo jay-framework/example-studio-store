@@ -538,7 +538,7 @@
           <!-- Gallery -->
           <div class="product-gallery">
             <div class="product-main-image">
-              <img src="{productPage.mediaGallery.selectedMedia.url}" alt="{productPage.productName}" />
+              <img src="{productPage.mediaGallery.selectedMedia.url}/v1/fill/w_900,h_1125/file.webp" alt="{productPage.productName}" loading="eager" width="900" height="1125" />
             </div>
             
             <div class="product-thumbnails">
@@ -546,7 +546,7 @@
                    forEach="productPage.mediaGallery.availableMedia" 
                    trackBy="mediaId"
                    ref="productPage.mediaGallery.availableMedia.selected">
-                <img src="{media.thumbnail_50x50}" alt="Thumbnail" />
+                <img src="{media.url}/v1/fill/w_160,h_200/file.webp" alt="Thumbnail" loading="lazy" width="160" height="200" />
               </div>
             </div>
           </div>
@@ -601,9 +601,10 @@
                 <label class="option-label">{name}</label>
                 
                 <!-- Text Choices as Dropdown -->
-                <select class="select" 
+                <select class="select"
                         if="optionRenderType == TEXT_CHOICES"
-                        ref="productPage.options.textChoice">
+                        ref="productPage.options.textChoice"
+                        aria-label="{name}">
                   <option forEach="choices" trackBy="choiceId" value="{choiceId}">{name}</option>
                 </select>
 
@@ -611,10 +612,11 @@
                 <div class="option-choices" if="optionRenderType == COLOR_SWATCH_CHOICES">
                   <button class="choice-btn color-swatch {isSelected ? selected} {!inStock ? out-of-stock}"
                           style="background-color: {colorCode}"
-                          forEach="choices" 
+                          forEach="choices"
                           trackBy="choiceId"
                           ref="productPage.options.choices.choiceButton"
-                          title="{name}">
+                          title="{name}"
+                          aria-label="{name}">
                   </button>
                 </div>
               </div>
@@ -625,28 +627,31 @@
               <div class="option-group" forEach="productPage.modifiers" trackBy="_id">
                 <label class="option-label">{name}</label>
                 
-                <select class="select" 
+                <select class="select"
                         if="modifierType == TEXT_CHOICES"
-                        ref="productPage.modifiers.textModifier">
+                        ref="productPage.modifiers.textModifier"
+                        aria-label="{name}">
                   <option forEach="choices" trackBy="choiceId" value="{choiceId}">{name}</option>
                 </select>
 
                 <div class="option-choices" if="modifierType == COLOR_SWATCH_CHOICES">
                   <button class="choice-btn color-swatch {isSelected ? selected}"
                           style="background-color: {colorCode}"
-                          forEach="choices" 
+                          forEach="choices"
                           trackBy="choiceId"
                           ref="choiceButton"
-                          title="{name}">
+                          title="{name}"
+                          aria-label="{name}">
                   </button>
                 </div>
 
-                <input class="input" 
-                       type="text" 
+                <input class="input"
+                       type="text"
                        if="modifierType == FREE_TEXT"
                        ref="productPage.modifiers.textInput"
                        placeholder="ENTER CUSTOM TEXT"
-                       maxlength="{textInputLength}" />
+                       maxlength="{textInputLength}"
+                       aria-label="{name}" />
               </div>
             </div>
 
@@ -655,11 +660,12 @@
               <label class="option-label">QUANTITY</label>
               <div class="quantity-controls">
                 <button class="quantity-btn" ref="productPage.quantity.decrementButton">−</button>
-                <input class="quantity-input" 
-                       type="number" 
-                       value="{productPage.quantity.quantity}" 
+                <input class="quantity-input"
+                       type="number"
+                       value="{productPage.quantity.quantity}"
                        ref="productPage.quantity.quantity"
-                       min="1" />
+                       min="1"
+                       aria-label="Quantity" />
                 <button class="quantity-btn" ref="productPage.quantity.incrementButton">+</button>
               </div>
             </div>
@@ -667,7 +673,7 @@
             <!-- Additional Info Sections -->
             <div class="info-sections" if="productPage.infoSections">
               <div class="info-section" forEach="productPage.infoSections" trackBy="_id">
-                <h4 class="info-section-title">{title}</h4>
+                <h2 class="info-section-title">{title}</h2>
                 <div class="info-section-content">{plainDescription}</div>
               </div>
             </div>
