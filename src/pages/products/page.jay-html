@@ -10,6 +10,9 @@
             contract="cart-indicator"
             key="cartIndicator"
     ></script>
+    <title>Products — STUDIO</title>
+    <meta name="description" content="Browse our curated collection of studio-exclusive products and latest drops.">
+    <link rel="canonical" href="/products">
     <script type="application/jay-data">
       data:
     </script>
@@ -225,7 +228,7 @@
     </style>
   </head>
   <body>
-    <div class="products-page">
+    <main class="products-page">
       <!-- Site Header -->
       <header class="site-header">
         <div class="header-inner">
@@ -404,6 +407,7 @@
                   loading="lazy"
                   width="600"
                   height="600"
+                  fetchpriority="high"
                 />
                 
                 <!-- Hover Overlay -->
@@ -504,6 +508,6 @@
           </div>
         </section>
       </div>
-    </div>
+    </main>
   </body>
 </html>

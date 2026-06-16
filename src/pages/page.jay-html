@@ -1,5 +1,8 @@
 <html>
   <head>
+    <title>STUDIO — Design Meets Function</title>
+    <meta name="description" content="Curated products for those who appreciate bold design and uncompromising quality.">
+    <link rel="canonical" href="/">
     <script type="application/jay-data">
       data:
     </script>
@@ -128,7 +131,7 @@
     </style>
   </head>
   <body>
-    <div class="home-page">
+    <main class="home-page">
       <header class="site-header">
         <div class="header-inner">
           <a href="/" class="site-logo">
@@ -162,7 +165,7 @@
             <div class="product-card-image">
               <span class="ribbon"><span class="badge badge-accent">Best Seller</span></span>
               <img src="https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   alt="Ceramic Flower Vase" loading="lazy" width="600" height="600" />
+                   alt="Ceramic Flower Vase" loading="eager" width="600" height="600" fetchpriority="high" />
               <div class="product-image-overlay">
                 <div class="overlay-name">Ceramic Flower Vase</div>
                 <div class="overlay-price">$270.00</div>
@@ -207,6 +210,6 @@
           </a>
         </div>
       </section>
-    </div>
+    </main>
   </body>
 </html>

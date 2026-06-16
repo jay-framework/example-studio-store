@@ -10,6 +10,9 @@
             contract="cart-indicator"
             key="cartIndicator"
     ></script>
+    <title>{productPage.productName} — STUDIO</title>
+    <meta name="description" content="Shop {productPage.productName} at STUDIO. Bold design, uncompromising quality.">
+    <link rel="canonical" href="/products/{productPage.slug}">
     <script type="application/jay-data">
       data:
     </script>
@@ -506,7 +509,7 @@
     </style>
   </head>
   <body>
-    <div class="product-page">
+    <main class="product-page">
       <!-- Site Header -->
       <header class="site-header">
         <div class="header-inner">
@@ -538,7 +541,7 @@
           <!-- Gallery -->
           <div class="product-gallery">
             <div class="product-main-image">
-              <img src="{productPage.mediaGallery.selectedMedia.url}/v1/fill/w_900,h_1125/file.webp" alt="{productPage.productName}" loading="eager" width="900" height="1125" />
+              <img src="{productPage.mediaGallery.selectedMedia.url}/v1/fill/w_900,h_1125/file.webp" alt="{productPage.productName}" loading="eager" width="900" height="1125" fetchpriority="high" />
             </div>
             
             <div class="product-thumbnails">
@@ -702,6 +705,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>

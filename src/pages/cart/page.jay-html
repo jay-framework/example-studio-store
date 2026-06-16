@@ -5,6 +5,9 @@
             contract="cart-page"
             key="cartPage"
     ></script>
+    <title>Your Bag — STUDIO</title>
+    <meta name="description" content="Review your bag and proceed to checkout at STUDIO.">
+    <link rel="canonical" href="/cart">
     <script type="application/jay-data">
       data:
     </script>
@@ -530,7 +533,7 @@
     </style>
   </head>
   <body>
-    <div class="cart-page">
+    <main class="cart-page">
       <!-- Site Header -->
       <header class="site-header">
         <div class="header-inner">
@@ -593,7 +596,8 @@
                      alt="{image.altText}"
                      loading="lazy"
                      width="200"
-                     height="240">
+                     height="240"
+                     fetchpriority="high">
               </a>
 
               <div class="item-info">
@@ -687,6 +691,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
   </body>
 </html>
