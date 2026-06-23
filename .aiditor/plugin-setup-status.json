@@ -5,7 +5,7 @@
       "config/.wix.yaml"
     ],
     "message": "🔧 Setting up plugins...\n\n[buildStart] Vite detected: true\n[wix-server-client] Initializing Wix client configuration...\n[wix-cart] Initializing Wix Cart service...\n[wix-cart] Server initialization complete\n[wix-stores] Initializing Wix Stores service...\n[wix-stores] URL templates: product=\"/products/{slug}\", category=\"none\"\n[wix-stores] Server initialization complete\n📦 wix-server-client\n   ✅ Services verified\n   Wix client connected (site: 83d9e772...)\n\nSetup complete: 1 configured",
-    "checkedAt": "2026-06-16T10:36:15.298Z"
+    "checkedAt": "2026-06-18T12:54:38.878Z"
   },
   "wix-stores": {
     "setupStatus": "configured",
@@ -13,6 +13,6 @@
       "config/.wix-stores.yaml"
     ],
     "message": "🔧 Setting up plugins...\n\n[buildStart] Vite detected: true\n[wix-server-client] Initializing Wix client configuration...\n[wix-cart] Initializing Wix Cart service...\n[wix-cart] Server initialization complete\n[wix-stores] Initializing Wix Stores service...\n[wix-stores] URL templates: product=\"/products/{slug}\", category=\"none\"\n[wix-stores] Server initialization complete\n📦 wix-stores\n   ✅ Services verified\n   Wix Stores configured (product URL: /products/{slug})\n\nSetup complete: 1 configured",
-    "checkedAt": "2026-06-16T10:36:16.942Z"
+    "checkedAt": "2026-06-18T12:54:41.133Z"
   }
 }

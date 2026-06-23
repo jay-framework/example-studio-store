@@ -36,7 +36,51 @@
       }
 
       .hero h1 span {
-        color: var(--accent);
+        color: red;
+        display: inline-block;
+        animation: funBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+                   funColorCycle 4s ease-in-out 1s infinite;
+      }
+
+      @keyframes funBounceIn {
+        0% {
+          opacity: 0;
+          transform: scale(0.3) rotate(-12deg);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.12) rotate(3deg);
+        }
+        70% {
+          transform: scale(0.95) rotate(-1deg);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+      }
+
+      @keyframes funColorCycle {
+        0%, 100% {
+          color: red;
+          transform: scale(1) rotate(0deg);
+        }
+        20% {
+          color: #ff6b00;
+          transform: scale(1.04) rotate(1deg);
+        }
+        40% {
+          color: #e600ff;
+          transform: scale(1) rotate(-1deg);
+        }
+        60% {
+          color: #00b3ff;
+          transform: scale(1.04) rotate(1deg);
+        }
+        80% {
+          color: #ff2d6b;
+          transform: scale(1) rotate(-1deg);
+        }
       }
 
       .hero-description {
