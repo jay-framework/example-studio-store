@@ -1,0 +1,165 @@
+<html>
+  <head>
+    <script type="application/jay-headless"
+            plugin="@jay-framework/wix-cart"
+            contract="cart-indicator"
+    ></script>
+    <script type="application/jay-data" contract="./site-header.jay-contract"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/products" class="site-logo">
+          STUDIO<span class="logo-dot"></span>
+        </a>
+        <nav class="site-nav">
+          <a href="/products">Products</a>
+          <jay:cart-indicator>
+            <a href="/cart"
+               class="cart-indicator {hasItems ? has-items} {isLoading ? is-loading} {justAdded ? just-added}"
+               ref="cartLink">
+              <span class="cart-indicator-icon">BAG</span>
+              <span class="cart-indicator-count" if="hasItems">{itemCount}</span>
+            </a>
+          </jay:cart-indicator>
+        </nav>
+      </div>
+    </header>
+  </body>
+  <style>
+    .site-header {
+      background: var(--bg-inverse);
+      border-bottom: var(--border-width) solid var(--accent);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px var(--page-padding);
+    }
+
+    .site-logo {
+      font-family: var(--font-primary);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text-inverse);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .site-logo .logo-dot {
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .site-nav a {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-inverse);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 8px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    .site-nav a:hover,
+    .site-nav a.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* Cart Indicator - Brutalist Box */
+    .cart-indicator {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: transparent;
+      border: 2px solid var(--text-inverse);
+      color: var(--text-inverse);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all var(--transition-fast);
+    }
+
+    .cart-indicator:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--text-primary);
+    }
+
+    .cart-indicator-icon {
+      font-size: 18px;
+    }
+
+    .cart-indicator-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 6px;
+      background: var(--accent);
+      color: var(--text-primary);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .cart-indicator.just-added {
+      animation: cart-flash 0.3s ease;
+    }
+
+    @keyframes cart-flash {
+      0%,
+      100% {
+        background: transparent;
+      }
+      50% {
+        background: var(--accent);
+        color: var(--text-primary);
+      }
+    }
+
+    .cart-indicator.is-loading .cart-indicator-count {
+      opacity: 0.5;
+    }
+
+    @media (max-width: 768px) {
+      .site-nav {
+        gap: 16px;
+      }
+
+      .site-nav a:not(.cart-indicator) {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+    }
+  </style>
+</html>

@@ -188,7 +188,7 @@
     }
 
     @scope (.siteHeader) {
-      :scope {
+      .site-header {
         background: var(--bg-inverse);
         border-bottom: var(--border-width) solid var(--accent);
         position: sticky;
@@ -330,7 +330,7 @@
 
 <body>
   <main class="home-page"><jay:site-header ref="siteHeader">
-      <header class="site-header siteHeader">
+      <header class="site-header">
         <div class="header-inner"><a href="/" class="site-logo" override="href">STUDIO<span
               class="logo-dot"></span></a>
           <nav class="site-nav"><a href="/products">Products</a><jay:cart-indicator><a href="/cart"
