@@ -1,266 +1,406 @@
 <html>
-  <head>
-    <title>STUDIO — Design Meets Function</title>
-    <meta name="description" content="Curated products for those who appreciate bold design and uncompromising quality.">
-    <script type="application/jay-data">
+
+<head>
+  <title>STUDIO — Design Meets Function</title>
+  <meta name="description"
+    content="Curated products for those who appreciate bold design and uncompromising quality.">
+  <script type="application/jay-headless" plugin="@jay-framework/wix-cart"
+    contract="cart-indicator"></script>
+  <script type="application/jay-headless"
+    contract="../components/site-header/site-header.jay-contract"
+    template="../components/site-header/site-header.jay-html"></script>
+  <script type="application/jay-data">
       data:
     </script>
-    <link rel="stylesheet" href="../styles/brutalist-theme.css" />
-    <style>
-      .home-page {
-        min-height: 100vh;
+  <link rel="stylesheet" href="../styles/brutalist-theme.css">
+  <style>
+    .home-page {
+      min-height: 100vh;
+    }
+
+    .hero {
+      padding: 120px var(--page-padding) 80px;
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 32px;
+      color: var(--text-primary);
+    }
+
+    .hero h1 span {
+      color: red;
+      display: inline-block;
+      animation: funBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both, funColorCycle 4s ease-in-out 1s infinite;
+    }
+
+    @keyframes funBounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-12deg);
       }
 
-      .hero {
-        padding: 120px var(--page-padding) 80px;
-        max-width: var(--container-max);
-        margin: 0 auto;
+      50% {
+        opacity: 1;
+        transform: scale(1.12) rotate(3deg);
       }
 
-      .hero-label {
-        font-family: var(--font-mono);
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: var(--text-muted);
-        margin-bottom: 24px;
+      70% {
+        transform: scale(0.95) rotate(-1deg);
       }
 
-      .hero h1 {
-        font-family: var(--font-heading);
-        font-size: clamp(3rem, 8vw, 6rem);
-        font-weight: 700;
-        line-height: 1;
-        margin-bottom: 32px;
-        color: var(--text-primary);
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
       }
+    }
 
-      .hero h1 span {
+    @keyframes funColorCycle {
+
+      0%,
+      100% {
         color: red;
-        display: inline-block;
-        animation: funBounceIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both,
-                   funColorCycle 4s ease-in-out 1s infinite;
+        transform: scale(1) rotate(0deg);
       }
 
-      @keyframes funBounceIn {
-        0% {
-          opacity: 0;
-          transform: scale(0.3) rotate(-12deg);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.12) rotate(3deg);
-        }
-        70% {
-          transform: scale(0.95) rotate(-1deg);
-        }
-        100% {
-          opacity: 1;
-          transform: scale(1) rotate(0deg);
-        }
+      20% {
+        color: #ff6b00;
+        transform: scale(1.04) rotate(1deg);
       }
 
-      @keyframes funColorCycle {
-        0%, 100% {
-          color: red;
-          transform: scale(1) rotate(0deg);
-        }
-        20% {
-          color: #ff6b00;
-          transform: scale(1.04) rotate(1deg);
-        }
-        40% {
-          color: #e600ff;
-          transform: scale(1) rotate(-1deg);
-        }
-        60% {
-          color: #00b3ff;
-          transform: scale(1.04) rotate(1deg);
-        }
-        80% {
-          color: #ff2d6b;
-          transform: scale(1) rotate(-1deg);
-        }
+      40% {
+        color: #e600ff;
+        transform: scale(1) rotate(-1deg);
       }
 
-      .hero-description {
-        font-size: 1.1rem;
-        color: var(--text-secondary);
-        max-width: 480px;
-        line-height: 1.6;
-        margin-bottom: 48px;
+      60% {
+        color: #00b3ff;
+        transform: scale(1.04) rotate(1deg);
       }
 
-      .hero-cta {
-        display: inline-block;
-        padding: 16px 40px;
+      80% {
+        color: #ff2d6b;
+        transform: scale(1) rotate(-1deg);
+      }
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.6;
+      margin-bottom: 48px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--bg-inverse);
+      color: var(--text-inverse);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border: var(--border-width) solid var(--border);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--accent);
+      color: var(--bg-inverse);
+    }
+
+    /* Featured Products Section */
+    .featured-products {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--page-padding) 120px;
+    }
+
+    .featured-products-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: var(--border-width) solid var(--border);
+    }
+
+    .featured-products-title {
+      font-family: var(--font-primary);
+      font-size: 28px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .featured-products-link {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      padding-bottom: 2px;
+    }
+
+    .featured-products-link:hover {
+      color: var(--accent-dark);
+      border-bottom-color: var(--accent);
+    }
+
+    .featured-products .products-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .featured-products .product-card .product-card-image {
+      aspect-ratio: 3/4;
+    }
+
+    @media (max-width: 1024px) {
+      .featured-products .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .featured-products .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+
+    @scope (.siteHeader) {
+      :scope {
         background: var(--bg-inverse);
-        color: var(--text-inverse);
-        text-decoration: none;
-        font-family: var(--font-mono);
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 0.15em;
-        border: var(--border-width) solid var(--border);
-        transition: background 0.2s, color 0.2s;
+        border-bottom: var(--border-width) solid var(--accent);
+        position: sticky;
+        top: 0;
+        z-index: 100;
       }
 
-      .hero-cta:hover {
-        background: var(--accent);
-        color: var(--bg-inverse);
-      }
-
-      /* Featured Products Section */
-      .featured-products {
+      .header-inner {
         max-width: var(--container-max);
         margin: 0 auto;
-        padding: 0 var(--page-padding) 120px;
-      }
-
-      .featured-products-header {
         display: flex;
-        align-items: baseline;
         justify-content: space-between;
-        margin-bottom: 40px;
-        padding-bottom: 20px;
-        border-bottom: var(--border-width) solid var(--border);
+        align-items: center;
+        padding: 16px var(--page-padding);
       }
 
-      .featured-products-title {
+      .site-logo {
         font-family: var(--font-primary);
         font-size: 28px;
         font-weight: 700;
+        color: var(--text-inverse);
         text-transform: uppercase;
-        letter-spacing: -0.01em;
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
 
-      .featured-products-link {
+      .site-logo .logo-dot {
+        width: 12px;
+        height: 12px;
+        background: var(--accent);
+        display: inline-block;
+      }
+
+      .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .site-nav a {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-inverse);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        padding: 8px 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      .site-nav a:hover,
+      .site-nav a.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      /* Cart Indicator - Brutalist Box */
+      .cart-indicator {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        background: transparent;
+        border: 2px solid var(--text-inverse);
+        color: var(--text-inverse);
         font-family: var(--font-mono);
         font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--text-muted);
-        border-bottom: 2px solid transparent;
-        padding-bottom: 2px;
+        letter-spacing: 0.05em;
+        transition: all var(--transition-fast);
       }
 
-      .featured-products-link:hover {
-        color: var(--accent-dark);
-        border-bottom-color: var(--accent);
+      .cart-indicator:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--text-primary);
       }
 
-      .featured-products .products-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
+      .cart-indicator-icon {
+        font-size: 18px;
       }
 
-      .featured-products .product-card .product-card-image {
-        aspect-ratio: 3/4;
+      .cart-indicator-count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 22px;
+        height: 22px;
+        padding: 0 6px;
+        background: var(--accent);
+        color: var(--text-primary);
+        font-size: 11px;
+        font-weight: 700;
       }
 
-      @media (max-width: 1024px) {
-        .featured-products .products-grid {
-          grid-template-columns: repeat(2, 1fr);
+      .cart-indicator.just-added {
+        animation: cart-flash 0.3s ease;
+      }
+
+      @keyframes cart-flash {
+
+        0%,
+        100% {
+          background: transparent;
+        }
+
+        50% {
+          background: var(--accent);
+          color: var(--text-primary);
+        }
+      }
+
+      .cart-indicator.is-loading .cart-indicator-count {
+        opacity: 0.5;
+      }
+
+      @media (max-width: 768px) {
+        .site-nav {
+          gap: 16px;
+        }
+
+        .site-nav a:not(.cart-indicator) {
+          display: none;
         }
       }
 
       @media (max-width: 600px) {
-        .featured-products .products-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 10px;
+        .header-inner {
+          flex-wrap: wrap;
+          gap: 12px;
         }
       }
-    </style>
-  </head>
-  <body>
-    <main class="home-page">
-      <header class="site-header">
-        <div class="header-inner">
-          <a href="/" class="site-logo">
-            STUDIO<span class="logo-dot"></span>
-          </a>
-          <nav class="site-nav">
-            <a href="/products">Products</a>
-            <a href="/cart">BAG</a>
-          </nav>
+    }
+  </style>
+</head>
+
+<body>
+  <main class="home-page"><jay:site-header ref="siteHeader">
+      <header class="site-header siteHeader">
+        <div class="header-inner"><a href="/" class="site-logo" override="href">STUDIO<span
+              class="logo-dot"></span></a>
+          <nav class="site-nav"><a href="/products">Products</a><jay:cart-indicator><a href="/cart"
+                class="cart-indicator {hasItems ? has-items} {isLoading ? is-loading} {justAdded ? just-added}"
+                ref="cartLink"><span class="cart-indicator-icon">BAG</span><span
+                  class="cart-indicator-count"
+                  if="hasItems">{itemCount}</span></a></jay:cart-indicator></nav>
         </div>
       </header>
-
-      <section class="hero">
-        <div class="hero-label">New Collection 2026</div>
-        <h1>Design<br/>meets <span>function</span></h1>
-        <p class="hero-description">
-          Curated products for those who appreciate bold design and uncompromising quality.
-        </p>
-        <a href="/products" class="hero-cta">Browse Collection</a>
-      </section>
-
-      <section class="featured-products">
-        <div class="featured-products-header">
-          <h2 class="featured-products-title">Featured Products</h2>
-          <a href="/products" class="featured-products-link">View All</a>
-        </div>
-
-        <div class="products-grid">
-          <!-- Ceramic Flower Vase -->
-          <a href="/products/ceramic-flower-vase" class="product-card">
-            <div class="product-card-image">
-              <span class="ribbon"><span class="badge badge-accent">Best Seller</span></span>
-              <img src="https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   srcset="https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
-                   sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                   alt="Ceramic Flower Vase" loading="eager" width="600" height="600" fetchpriority="high" />
-              <div class="product-image-overlay">
-                <div class="overlay-name">Ceramic Flower Vase</div>
-                <div class="overlay-price">$270.00</div>
-              </div>
+    </jay:site-header>
+    <section class="hero">
+      <div class="hero-label">New Collection 2026</div>
+      <h1>Design<br>meets <span>function</span></h1>
+      <p class="hero-description">Curated products for those who appreciate bold design and
+        uncompromising quality.</p><a href="/products" class="hero-cta">Browse Collection</a>
+    </section>
+    <section class="featured-products">
+      <div class="featured-products-header">
+        <h2 class="featured-products-title">Featured Products</h2><a href="/products"
+          class="featured-products-link">View All</a>
+      </div>
+      <div class="products-grid"><a href="/products/ceramic-flower-vase" class="product-card">
+          <div class="product-card-image"><span class="ribbon"><span class="badge badge-accent">Best
+                Seller</span></span><img
+              src="https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+              srcset="https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_63dba6a8f31a4de7bfb453ed3d0a83dd~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              alt="Ceramic Flower Vase" loading="eager" width="600" height="600"
+              fetchpriority="high">
+            <div class="product-image-overlay">
+              <div class="overlay-name">Ceramic Flower Vase</div>
+              <div class="overlay-price">$270.00</div>
             </div>
-          </a>
-
-          <!-- Minimalist Tote Bag -->
-          <a href="/products/minimalist-tote-bag" class="product-card">
-            <div class="product-card-image">
-              <img src="https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   srcset="https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
-                   sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                   alt="Minimalist Tote Bag" loading="lazy" width="600" height="600" />
-              <div class="product-image-overlay">
-                <div class="overlay-name">Minimalist Tote Bag</div>
-                <div class="overlay-price">$20.00</div>
-              </div>
+          </div>
+        </a><a href="/products/minimalist-tote-bag" class="product-card">
+          <div class="product-card-image"><img
+              src="https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+              srcset="https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_07a8336264e94f07843e4f6ec8224169~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              alt="Minimalist Tote Bag" loading="lazy" width="600" height="600">
+            <div class="product-image-overlay">
+              <div class="overlay-name">Minimalist Tote Bag</div>
+              <div class="overlay-price">$20.00</div>
             </div>
-          </a>
-
-          <!-- Hydrating Eye Serum -->
-          <a href="/products/hydrating-eye-serum" class="product-card">
-            <div class="product-card-image">
-              <img src="https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   srcset="https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
-                   sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                   alt="Hydrating Eye Serum" loading="lazy" width="600" height="600" />
-              <div class="product-image-overlay">
-                <div class="overlay-name">Hydrating Eye Serum</div>
-                <div class="overlay-price">$56.00</div>
-              </div>
+          </div>
+        </a><a href="/products/hydrating-eye-serum" class="product-card">
+          <div class="product-card-image"><img
+              src="https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+              srcset="https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_45964e1ca2d844958c7348510063a4df~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              alt="Hydrating Eye Serum" loading="lazy" width="600" height="600">
+            <div class="product-image-overlay">
+              <div class="overlay-name">Hydrating Eye Serum</div>
+              <div class="overlay-price">$56.00</div>
             </div>
-          </a>
-
-          <!-- Knitted Golf Sweater -->
-          <a href="/products/knitted-golf-sweater" class="product-card">
-            <div class="product-card-image">
-              <img src="https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
-                   srcset="https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
-                   sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                   alt="Knitted Golf Sweater" loading="lazy" width="600" height="600" />
-              <div class="product-image-overlay">
-                <div class="overlay-name">Knitted Golf Sweater</div>
-                <div class="overlay-price">$275.00</div>
-              </div>
+          </div>
+        </a><a href="/products/knitted-golf-sweater" class="product-card">
+          <div class="product-card-image"><img
+              src="https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_600,h_600,q_85/file.jpg"
+              srcset="https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_300%2Ch_300%2Cq_85/file.jpg 300w, https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_400%2Ch_400%2Cq_85/file.jpg 400w, https://static.wixstatic.com/media/22e53e_a383423cefa645b3be584349a6071bc0~mv2.jpg/v1/fill/w_600%2Ch_600%2Cq_85/file.jpg 600w"
+              sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              alt="Knitted Golf Sweater" loading="lazy" width="600" height="600">
+            <div class="product-image-overlay">
+              <div class="overlay-name">Knitted Golf Sweater</div>
+              <div class="overlay-price">$275.00</div>
             </div>
-          </a>
-        </div>
-      </section>
-    </main>
-  </body>
+          </div>
+        </a></div>
+    </section>
+  </main>
+</body>
+
 </html>

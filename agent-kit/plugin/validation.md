@@ -1,5 +1,12 @@
 # Plugin Validation
 
+Two separate validation commands:
+
+- **`jay-stack validate-plugin`** — validates your plugin's own structure (run during plugin development)
+- **`jay-stack validate`** — validates a project's jay-html files, including running your plugin's custom validators (run from a project that uses your plugin)
+
+## validate-plugin
+
 Run `jay-stack validate-plugin` to check your plugin for errors.
 
 ## Usage
@@ -35,6 +42,24 @@ jay-stack validate-plugin -v
 - Contract files referenced in `plugin.yaml` exist
 - Component export names are valid strings (not file paths)
 - Action metadata files (`.jay-action`) exist
+
+### Capability-aware structure
+
+`validate-plugin` derives required exports from the capabilities the plugin declares (see the
+capability matrix in [plugin-structure.md](plugin-structure.md)):
+
+- **≥1 capability** — a plugin declaring none is warned (a `global: true` plugin counts iff it exports
+  a resolvable `init`/`setup` handler).
+- **`./tools` required** iff any tools capability (`validators`, `commands`, `agentkit`, `setup`) or a
+  `devOnly` action is declared — those handlers load only from `./tools`. Validator/setup/agentkit
+  handler names are checked against the **`./tools`** entry, not `.`.
+- **`./client` required** iff a component has an interactive phase (detected by scanning the built
+  server `.` bundle for the interactive mark) or `contexts` is declared. Server-only and tools-only
+  plugins need no `./client`.
+- **Leak scan** — the serve entry `dist/index.js` must contain no `@jay-framework/compiler-` import.
+  A compiler-using handler re-exported from `index.ts` fails this check; move it to `lib/tools.ts`.
+- **`devOnly`** — `actions[].devOnly` / `routes[].devOnly` must be booleans; a `devOnly` action
+  requires the `./tools` export.
 
 ### Type Generation
 
@@ -119,20 +144,27 @@ Values: `title`, `meta:<name>` (e.g., `meta:description`), `link:<rel>` (e.g., `
 
 Validators access this via `ctx.headlessImports[].providedHeadTags`.
 
-## Plugin Validators
+## Plugin Validators (jay-stack validate)
 
-Plugins can provide custom jay-html validation rules that run during `jay-stack validate`. Declare validators in `plugin.yaml`:
+Plugins can provide custom jay-html validation rules that run during `jay-stack validate` in projects that use your plugin. Declare validators in `plugin.yaml`:
 
 ```yaml
 validators:
   - name: media-optimization
-    handler: ./validators/media-validator
+    handler: validateMediaOptimization # export name from the ./tools entry
     description: Ensures media URLs use resize parameters
 ```
 
+**Handler format:**
+
+- **NPM plugins** — `handler` is an export name from the **`./tools`** entry (e.g., `validateMediaOptimization`). The function must be exported from `lib/tools.ts`. **Never re-export a validator from `lib/index.ts`** — validators use compiler APIs (`walkElements`, `parseTemplateParts`, …), and re-exporting from the serve entry pulls the compiler into the production bundle (caught by the leak scan).
+- **Local plugins** (`src/plugins/`) — `handler` is a relative path to the module (e.g., `./validators/media-validator`). The module must export a `validate` function.
+
+`jay-stack validate-plugin` checks that the handler exists and is correctly exported from `./tools`.
+
 ### Writing a Validator
 
-The handler module exports a `validate` function:
+Export the validator function from the **`./tools`** entry (`lib/tools.ts`, for NPM) or from the handler module (for local):
 
 ```typescript
 import type { JayHtmlValidatorFn, JayHtmlValidationFinding } from '@jay-framework/compiler-shared';
