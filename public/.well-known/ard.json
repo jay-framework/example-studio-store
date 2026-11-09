@@ -1,0 +1,17 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:studio:catalog:products",
+      "displayName": "STUDIO Product Catalog",
+      "type": "application/ld+json",
+      "url": "https://studio.example.com/sitemap.xml",
+      "description": "Browse and search STUDIO's catalog of exclusive drops and streetwear.",
+      "representativeQueries": [
+        "latest studio drops",
+        "streetwear hoodies",
+        "limited edition tees"
+      ],
+      "tags": ["shop", "catalog", "streetwear"]
+    }
+  ]
+}

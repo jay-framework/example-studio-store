@@ -1,2 +1,5 @@
 site:
   baseUrl: https://studio.example.com
+  name: STUDIO
+  description: Studio-exclusive drops and curated streetwear — bold, brutalist, built to last.
+  logo: /logo.png

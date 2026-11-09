@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="application/jay-headless" plugin="jay-stack" contract="error" key="error"></script>
+  <script type="application/jay-data">
+data:
+  </script>
+  <title>{error.title} — STUDIO</title>
+  <meta name="description" content="{error.message}">
+  <link rel="stylesheet" href="../../styles/brutalist-theme.css">
+  <style>
+    .error-page {
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 16px;
+      padding: 80px var(--page-padding);
+      background: var(--bg-inverse);
+      color: var(--text-inverse);
+    }
+
+    .error-page .error-status {
+      font-family: var(--font-mono);
+      font-size: 96px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .error-page .error-title {
+      font-size: 32px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .error-page .error-message {
+      max-width: 480px;
+      color: var(--text-inverse);
+      opacity: 0.8;
+    }
+
+    .error-page .error-home-link {
+      margin-top: 8px;
+      padding: 12px 24px;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="error-page">
+    <p class="error-status">{error.status}</p>
+    <h1 class="error-title">{error.title}</h1>
+    <p class="error-message">{error.message}</p>
+    <a href="/" class="error-home-link">Back to home</a>
+  </main>
+</body>
+
+</html>

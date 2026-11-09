@@ -365,10 +365,10 @@
 <body>
   <main class="products-page"><jay:site-header ref="siteHeader">
       <header class="site-header">
-        <div class="header-inner"><a href="/products" class="site-logo">STUDIO<span
+        <div class="header-inner"><a href="#top" class="site-logo" override="href">STUDIO<span
               class="logo-dot"></span></a>
-          <nav class="site-nav"><a href="/products" class="active"
-              override="class">Products</a><jay:cart-indicator><a href="/cart"
+          <nav class="site-nav"><a href="#top" class="active"
+              override="class href">Products</a><jay:cart-indicator><a href="/cart"
                 class="cart-indicator {hasItems ? has-items} {isLoading ? is-loading} {justAdded ? just-added}"
                 ref="cartLink"><span class="cart-indicator-icon">BAG</span><span
                   class="cart-indicator-count"
